@@ -68,7 +68,7 @@ class Config:
             self.RSS_CHAT = config("RSS_CHAT", default=0, cast=int)
             self.RSS_DELAY = config("RSS_DELAY", default=60, cast=int)
             self.RSS_DIRECT = config("RSS_DIRECT", default=False, cast=bool)
-            self.RELEASER = config("RELEASER", default=None)
+            self.RELEASER = config("RELEASER", default="JAVSTORE")
             self.TELEGRAPH_API = config(
                 "TELEGRAPH_API", default="https://api.telegra.ph"
             )
