@@ -8,7 +8,7 @@ import flag
 import humanize
 import pycountry
 
-from bot import conf, parse_file, release_name, release_name_b
+from bot import conf, parse_file #, release_name, release_name_b
 
 from .bot_utils import (
     auto_rename,
@@ -403,8 +403,8 @@ async def parse(
         f_title = await auto_rename(f_title, or_title, ar)
 
         file_name = str()
-        file_name += release_name
-        file_name += " "
+        #file_name += release_name
+        #file_name += " "
         file_name += f_title
         if sn:
             file_name += " S"
