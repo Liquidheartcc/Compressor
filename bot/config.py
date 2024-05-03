@@ -25,7 +25,7 @@ class Config:
             self.ALLOW_ACTION = config("ALLOW_ACTION", default=True, cast=bool)
             self.APP_ID = config("APP_ID", default=6, cast=int)
             self.API_HASH = config(
-                "API_HASH", default="eb06d4abfb49dc3eeb1aeb98ae0f581e"
+                "API_HASH", default=None
             )
             self.ARIA2_PORT = config("ARIA2_PORT", default=6800, cast=int)
             self.BOT_TOKEN = config("BOT_TOKEN")
@@ -67,8 +67,8 @@ class Config:
             self.QBIT_TIMEOUT = config("QBIT_TIMEOUT", default=20, cast=int)
             self.RSS_CHAT = config("RSS_CHAT", default=0, cast=int)
             self.RSS_DELAY = config("RSS_DELAY", default=60, cast=int)
-            self.RSS_DIRECT = config("RSS_DIRECT", default=True, cast=bool)
-            self.RELEASER = config("RELEASER", default="HyperX")
+            self.RSS_DIRECT = config("RSS_DIRECT", default=False, cast=bool)
+            self.RELEASER = config("RELEASER", default=None)
             self.TELEGRAPH_API = config(
                 "TELEGRAPH_API", default="https://api.telegra.ph"
             )
@@ -76,9 +76,9 @@ class Config:
             self.TEMP_USER = config("TEMP_USERS", default=str())
             self.TG_DL_CLIENT = config("TG_DL_CLIENT", default="pyrogram")
             self.TG_UL_CLIENT = config("TG_UL_CLIENT", default="pyrogram")
-            self.THUMB = config("THUMBNAIL", default=None)
-            self.USE_ANILIST = config("USE_ANILIST", default=True, cast=bool)
-            self.USE_CAPTION = config("USE_CAPTION", default=True, cast=bool)
+            self.THUMB = config("THUMBNAIL", default="https://telegra.ph/file/cc6cb5448aee307c8f16e.jpg")
+            self.USE_ANILIST = config("USE_ANILIST", default=False, cast=bool)
+            self.USE_CAPTION = config("USE_CAPTION", default=False, cast=bool)
             self.WORKERS = config("WORKERS", default=2, cast=int)
         except Exception:
             print("Environment vars Missing; or")
