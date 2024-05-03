@@ -86,15 +86,15 @@ if conf.TELEGRAPH_AUTHOR and len(conf.TELEGRAPH_AUTHOR.split("|")) > 1:
         tgp_author_url = None
 
 
-if "|" in conf.RELEASER:
-    release_name = conf.RELEASER.split("|")[0]
-    release_name_b = conf.RELEASER.split("|")[1]
-else:
-    release_name = conf.RELEASER
-    release_name_b = conf.RELEASER
+#if "|" in conf.RELEASER:
+#    release_name = conf.RELEASER.split("|")[0]
+ #   release_name_b = conf.RELEASER.split("|")[1]
+#else:
+   # release_name = conf.RELEASER
+   # release_name_b = conf.RELEASER
 
-release_name = f"[{release_name.strip()}]"
-release_name_b = f"[{release_name_b.strip()}]"
+#release_name = f"[{release_name.strip()}]"
+#release_name_b = f"[{release_name_b.strip()}]"
 
 
 if os.path.exists(log_file_name):
