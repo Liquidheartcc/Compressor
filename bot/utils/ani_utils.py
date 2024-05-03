@@ -414,8 +414,8 @@ async def parse(
             file_name += epi
         if v:
             file_name += f"v{v}"
-        if ((te and te == epi) and not sn) or r_is_end:
-            file_name += " [END]"
+        #if ((te and te == epi) and not sn) or r_is_end:
+            #file_name += " [END]"
         if a_con:
             file_name += f" [{a_con}]"
         file_name2 = file_name.replace(f_title, title)
@@ -709,8 +709,8 @@ async def simplecap(
             caption += f" - {et}"
         if not r_is_end and ri:
             caption += f" {ri}"
-        if epi == te or r_is_end:
-            caption += " [END]"
+        #if epi == te or r_is_end:
+            #caption += " [END]"
         if codec:
             caption += f" {codec}"
         if sor:
@@ -720,10 +720,10 @@ async def simplecap(
         if cap_info:
             cap_info = cap_info.format(**locals())
             caption += f" {cap_info.strip()}"
-        if encoder:
-            caption += f"-{encr}"
-        caption += f" [{crc32s}]"
-        caption += check_ext(fname, get_split=True)[2]
+        #if encoder:
+            #caption += f"-{encr}"
+        #caption += f" [{crc32s}]"
+        #caption += check_ext(fname, get_split=True)[2]
         if mi and conf.MI_CAP:
             caption = f"**[{caption}]({mi})**"
         else:
