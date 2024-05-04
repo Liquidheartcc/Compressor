@@ -41,7 +41,7 @@ class Config:
             self.DUMP_LEECH = config("DUMP_LEECH", default=True, cast=bool)
             self.DYNO = config("DYNO", default=None)
             self.ENCODER = config("ENCODER", default=None)
-            self.EXT_CAP = config("EXTENDED_CAPTIONS", default=True, cast=bool)
+            self.EXT_CAP = config("EXTENDED_CAPTIONS", default=False, cast=bool)
             self.FBANNER = config("FBANNER", default=False, cast=bool)
             self.FCHANNEL = config("FCHANNEL", default=0, cast=int)
             self.FCHANNEL_STAT = config("FCHANNEL_STAT", default=0, cast=int)
@@ -68,7 +68,7 @@ class Config:
             self.RSS_CHAT = config("RSS_CHAT", default=0, cast=int)
             self.RSS_DELAY = config("RSS_DELAY", default=60, cast=int)
             self.RSS_DIRECT = config("RSS_DIRECT", default=False, cast=bool)
-            #self.RELEASER = config("RELEASER", default="JAVSTORE")
+            self.RELEASER = config("RELEASER", default="HyperX")
             self.TELEGRAPH_API = config(
                 "TELEGRAPH_API", default="https://api.telegra.ph"
             )
