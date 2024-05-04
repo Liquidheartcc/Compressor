@@ -41,7 +41,7 @@ class Config:
             self.DUMP_LEECH = config("DUMP_LEECH", default=True, cast=bool)
             self.DYNO = config("DYNO", default=None)
             self.ENCODER = config("ENCODER", default=None)
-            self.EXT_CAP = config("EXTENDED_CAPTIONS", default=False, cast=bool)
+            self.EXT_CAP = config("EXTENDED_CAPTIONS", default=True, cast=bool)
             self.FBANNER = config("FBANNER", default=False, cast=bool)
             self.FCHANNEL = config("FCHANNEL", default=0, cast=int)
             self.FCHANNEL_STAT = config("FCHANNEL_STAT", default=0, cast=int)
