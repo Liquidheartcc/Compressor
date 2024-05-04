@@ -414,12 +414,12 @@ async def parse(
             file_name += epi
         if v:
             file_name += f"v{v}"
-        #if ((te and te == epi) and not sn) or r_is_end:
-            #file_name += " [END]"
+        if ((te and te == epi) and not sn) or r_is_end:
+            file_name += " [END]"
         if a_con:
             file_name += f" [{a_con}]"
         file_name2 = file_name.replace(f_title, title)
-        file_name2 = file_name2.replace(release_name, release_name_b)
+        #file_name2 = file_name2.replace(release_name, release_name_b)
         file_name2 = (
             file_name2.replace(f"[{a_con}]", f"- {et} [{a_con}]")
             if et and a_con
@@ -592,8 +592,8 @@ async def custcap(
             caption += f"**{ccd} Type:** `{cap_info.strip()}`"
         if not r_is_end and ri:
             caption += f" `{ri}`"
-        if epi == te or r_is_end:
-            caption += " **[END]**\n"
+        #if epi == te or r_is_end:
+            #caption += " **[END]**\n"
         else:
             caption += "\n"
         if et:
@@ -606,7 +606,7 @@ async def custcap(
         if encoder:
             encr = encoder.replace("@", "", 1)
             caption += f"**{ccd} Encoder:** `{encr}`\n"
-        caption += f"**{ccd} CRC32:** `[{crc32s}]`\n"
+        #caption += f"**{ccd} CRC32:** `[{crc32s}]`\n"
         caption += f"**🔗 {conf.C_LINK}**"
     except Exception:
         await logger(Exception)
@@ -720,10 +720,10 @@ async def simplecap(
         if cap_info:
             cap_info = cap_info.format(**locals())
             caption += f" {cap_info.strip()}"
-        #if encoder:
-            #caption += f"-{encr}"
-        #caption += f" [{crc32s}]"
-        #caption += check_ext(fname, get_split=True)[2]
+        if encoder:
+            caption += f"-{encr}"
+        caption += f" [{crc32s}]"
+        caption += check_ext(fname, get_split=True)[2]
         if mi and conf.MI_CAP:
             caption = f"**[{caption}]({mi})**"
         else:
