@@ -208,7 +208,7 @@ async def get_file_tag(_infile, caption=False, audio_only=False):
             elif len(_ainfo.split("|")) == 3:
                 out = "Tri"
             elif len(_ainfo.split("|")) == 2:
-                out = "Dual"
+                out = "Dual5"
             else:
                 out = None if not audio_only else _ainfo
         elif _ainfo is None:
