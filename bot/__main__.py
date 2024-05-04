@@ -104,7 +104,7 @@ async def get_me():
 loop = asyncio.get_event_loop()
 loop.run_until_complete(get_me())
 
-LOGS.info(f"@{me.username} is ready!")
+LOGS.info(f"Bot is ready!")
 
 
 def command(commands: list, prefixes: list = ["/"]):
