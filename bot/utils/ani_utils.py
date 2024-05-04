@@ -694,8 +694,8 @@ async def simplecap(
             crc32s = await crc32(out)
             mi = await info(out)
         caption = str()
-        caption += release_name_b
-        caption += " "
+        #caption += release_name_b
+        #caption += " "
         caption += title
         if sn:
             caption += " S"
