@@ -201,14 +201,14 @@ async def get_cus_tag(fn, rg, caption=False):
 
 async def get_file_tag(_infile, caption=False, audio_only=False):
     _ainfo, _sinfo = await get_stream_info(_infile)
-    if not caption:
+    if caption:
         if _ainfo:
             if len(_ainfo.split("|")) > 3:
                 out = "MULTi"
             elif len(_ainfo.split("|")) == 3:
                 out = "Tri"
             elif len(_ainfo.split("|")) == 2:
-                out = "Dual5"
+                out = "Dual"
             else:
                 out = None if not audio_only else _ainfo
         elif _ainfo is None:
