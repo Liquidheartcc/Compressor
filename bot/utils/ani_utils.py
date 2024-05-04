@@ -214,7 +214,7 @@ async def get_file_tag(_infile, caption=False, audio_only=False):
         elif _ainfo is None:
             out = "TBD"
     else:
-        if _ainfo or _sinfo:
+        if caption: #_ainfo or _sinfo:
             out = ""
             if _ainfo:
                 audio_count = len(_ainfo.split("|"))
@@ -246,6 +246,7 @@ async def get_file_tag(_infile, caption=False, audio_only=False):
                             __dual = True
                     if not __dual:
                         out += f"({_sinfo.title()}-sub)"
+
         else:
             out = None
     return out
