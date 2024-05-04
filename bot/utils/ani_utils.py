@@ -314,7 +314,7 @@ def conconvert(iso2_codes):
 
 
 async def parse(
-    name=None,
+    name,
     _file=None,
     _ext=".mkv",
     anilist=True,
