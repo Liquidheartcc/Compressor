@@ -313,7 +313,7 @@ def conconvert(iso2_codes):
     return iso3_codes
 
 
-async def parse(
+async def parsemp4(
     name,
     _file=None,
     _ext=".mkv",
