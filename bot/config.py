@@ -29,7 +29,7 @@ class Config:
             )
             self.ARIA2_PORT = config("ARIA2_PORT", default=6800, cast=int)
             self.BOT_TOKEN = config("BOT_TOKEN")
-            self.CACHE_DL = config("CACHE_DL", default=False, cast=bool)
+            self.CACHE_DL = config("CACHE_DL", default=True, cast=bool)
             self.CAP_DECO = config("CAP_DECO", default="◉")
             self.C_LINK = config("C_LINK", default="Encoded by HyperX")
             self.CMD_SUFFIX = config("CMD_SUFFIX", default=str())
