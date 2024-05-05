@@ -331,6 +331,8 @@ async def parse(
         else:
             file_name = f"{name}"
             file_name2 = file_name
+    except Exception as e:
+        print("An error occurred:", e)
     if "/" in file_name:
         file_name = file_name.replace("/", " ")
     return file_name, file_name2
