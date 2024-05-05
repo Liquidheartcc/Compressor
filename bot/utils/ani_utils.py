@@ -318,7 +318,7 @@ async def parse(
     name,
     _file=None,
     _ext=".mkv",
-    anilist=False,
+    anilist=True,
     cust_con=None,
     v=None,
     folder="downloads/",
@@ -427,106 +427,7 @@ async def simplecap(
     ccodec=None,
 ):
     try:
-        name, fil2, fil3 = await filter_name(name, _filter)
-        ## Get info ##
-        parsed = anitopy.parse(name)
-        # title
-        title = parsed.get("anime_title")
-        # episode number
-        epi = parsed.get("episode_number")
-        # season number
-        sn = parsed.get("anime_season")
-        if isinstance(sn, list):
-            sn = sn[0]
-        if sn and sn.startswith("0"):
-            sn = str(int(sn))
-        if sn == "1":
-            sn = None
-        # release group
-        rg = parsed.get("release_group")
-        # release information
-        ri = parsed.get("release_information")
-        ri = f"[{ri}]" if ri else ri
-        # year
-        yr = parsed.get("anime_year")
-        # episode title
-        et = parsed.get("episode_title")
-        not_allowed = "END", "MULTi", "WEB", "WEB-DL", "DDP5.1", "DDP2.0"
-        et = None if (et and any(nall in et for nall in not_allowed)) else et
-        # source
-        sor = parsed.get("source")
-
-        if title is None:
-            raise Exception("Parsing Failed")
-        out = folder + fname
-        or_title = title
-        r_is_end = True if ri == "[END]" else False
-        codec = await get_codec()
-        codec = ccodec or codec
-        cap_info = await get_cus_tag(name, rg, True)
-        cap_info = await get_file_tag(out, True) if not cap_info else cap_info
-
-        auto = cap_info
-        cap_info = (
-            fil3 if (fil3 and fil3.casefold() != "auto") or fil3 is None else cap_info
-        )
-        cap_info = cust_type if cust_type else cap_info
-        te = None
-        try:
-            if file_exists(parse_file) or not anilist:
-                raise Exception("Parsing turned off")
-            json = await get_ani_info(title)
-            title = json["title"]["english"]
-            title = json["title"]["romaji"] if not title else title
-            if sn:
-                json = await get_ani_info(f"{title} {sn}")
-            te = str(json.get("episodes"))
-            te = "0" + str(te) if epi.startswith("0") else te
-        except Exception:
-            log(Exception)
-
-        title = string.capwords(title)
-        ar = txt_to_str(ar_file)
-        title = await auto_rename(title, or_title, ar, caption=True)
-        crc32s, mi = None, None
-        if file_exists(out):
-            crc32s = await crc32(out)
-            mi = await info(out)
-        caption = str()
-        #caption += release_name_b
-        #caption += " "
-        caption += title
-        if sn:
-            caption += " S"
-            caption += sn
-        if epi:
-            caption += " - "
-            caption += epi
-        if ver:
-            caption += f"v{ver}"
-        if et:
-            caption += f" - {et}"
-        if not r_is_end and ri:
-            caption += f" {ri}"
-        #if epi == te or r_is_end:
-            #caption += " [END]"
-        if codec:
-            caption += f" {codec}"
-        if sor:
-            caption += f" [{sor}]"
-        if a_con and not a_con.casefold() in ("dual", "multi", "tbd", "tri"):
-            caption += f" [{a_con}]"
-        if cap_info:
-            cap_info = cap_info.format(**locals())
-            caption += f" {cap_info.strip()}"
-        if encoder:
-            caption += f"-{encr}"
-        caption += f" [{crc32s}]"
-        caption += check_ext(fname, get_split=True)[2]
-        if mi and conf.MI_CAP:
-            caption = f"**[{caption}]({mi})**"
-        else:
-            caption = f"`{caption}`"
+        caption = f"`{fname}`"
     except Exception:
         await logger(Exception)
         caption = f"`{fname}`"
