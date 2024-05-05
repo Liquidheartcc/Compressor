@@ -318,7 +318,7 @@ async def parse(
     name,
     _file=None,
     _ext=".mkv",
-    anilist=True,
+    anilist=False,
     cust_con=None,
     v=None,
     folder="downloads/",
