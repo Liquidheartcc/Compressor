@@ -313,8 +313,37 @@ def conconvert(iso2_codes):
         log(Exception)
     return iso3_codes
 
-
 async def parse(
+    name,
+    _file=None,
+    _ext=".mkv",
+    anilist=True,
+    cust_con=None,
+    v=None,
+    folder="downloads/",
+    _filter=None,
+    ccodec=None,
+):
+    try:
+        if _file:
+            file_name = _file.replace(f".{_ext}", f" {conf.C_LINK}.{_ext}")
+            file_name2 = file_name
+        else:
+            file_name = f"{name}.{_ext}"
+            file_name2 = file_name
+    except Exception:
+        await logger(Exception)
+        if _file:
+            file_name = _file.replace(f".{_ext}", f" {conf.C_LINK}.{_ext}")
+            file_name2 = file_name
+        else:
+            file_name = f"{name}.{_ext}"
+            file_name2 = file_name
+    if "/" in file_name:
+        file_name = file_name.replace("/", " ")
+    return file_name, file_name2
+
+async def varse(
     name,
     _file=None,
     _ext=".mkv",
