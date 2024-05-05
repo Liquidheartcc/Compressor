@@ -418,11 +418,12 @@ async def thing():
 
         text = str()
         mi = await info(dl)
+        mi2 = await info(out)
         forward_task = asyncio.create_task(forward_(name, out, up, mi, f))
 
-        text += f"**Source:** `[{rlsgrp}]`"
         if mi:
             text += f"\n\nMediainfo: **[(Source)]({mi})**"
+            text += f"\n\nMediainfo: **[(Encoded)]({mi2})**"
         mi_msg = await up.reply(
             text,
             disable_web_page_preview=True,
