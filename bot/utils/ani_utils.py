@@ -510,7 +510,7 @@ async def custcap(
         om = fname.split(".")[0]
         ot = om.split("@")[0]
         caption = f"**{ot}**\n**🔗 {conf.C_LINK}**"
-    return caption
+        return caption
     except Exception:
         await logger(Exception)
         om = fname.split(".")[0]
