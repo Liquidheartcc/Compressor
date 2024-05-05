@@ -333,9 +333,6 @@ async def parse(
         file_name = None
         file_name2 = None
 
-    if file_name and "/" in file_name:
-        file_name = file_name.replace("/", " ")
-
     return file_name, file_name2
 
 async def dynamicthumb(name, thum="thumb2.jpg", anilist=True, _filter=None):
