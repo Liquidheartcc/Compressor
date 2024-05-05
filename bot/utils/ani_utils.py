@@ -329,15 +329,7 @@ async def parse(
             file_name = _file
             file_name2 = file_name
         else:
-            file_name = f"{name}.{_ext}"
-            file_name2 = file_name
-    except Exception:
-        await logger(Exception)
-        if _file:
-            file_name = _file
-            file_name2 = file_name
-        else:
-            file_name = f"{name}.{_ext}"
+            file_name = f"{name}"
             file_name2 = file_name
     if "/" in file_name:
         file_name = file_name.replace("/", " ")
