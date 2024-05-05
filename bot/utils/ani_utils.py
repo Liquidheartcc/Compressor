@@ -328,15 +328,15 @@ async def parse(
         if _file:
             file_name = f"{name}.{_ext}"
             file_name2 = file_name
-    except Exception:
-        await logger(Exception)
-        if _file:
-            file_name = f"{name}.{_ext}"
-            file_name2 = file_name
-    if "/" in file_name:
-        file_name = file_name.replace("/", " ")
-    return file_name, file_name2
+    except Exception as e:
+        await logger(e)
+        file_name = None
+        file_name2 = None
 
+    if file_name and "/" in file_name:
+        file_name = file_name.replace("/", " ")
+
+    return file_name, file_name2
 
 async def dynamicthumb(name, thum="thumb2.jpg", anilist=True, _filter=None):
     try:
