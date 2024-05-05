@@ -78,7 +78,7 @@ class Config:
             self.TG_UL_CLIENT = config("TG_UL_CLIENT", default="pyrogram")
             self.THUMB = config("THUMBNAIL", default="https://telegra.ph/file/cc6cb5448aee307c8f16e.jpg")
             self.USE_ANILIST = config("USE_ANILIST", default=False, cast=bool)
-            self.USE_CAPTION = config("USE_CAPTION", default=True, cast=bool)
+            self.USE_CAPTION = config("USE_CAPTION", default=False, cast=bool)
             self.WORKERS = config("WORKERS", default=2, cast=int)
         except Exception:
             print("Environment vars Missing; or")
