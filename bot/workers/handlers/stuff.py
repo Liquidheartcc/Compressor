@@ -266,7 +266,7 @@ async def icommands(event):
     s = conf.CMD_SUFFIX or str()
     await event.edit(
         f"""`
-start{s} - check if bot is awake and get usage.
+start{s} - check if bot is alive.
 restart{s} -  restart bot
 bash{s} - /bash + command
 eval{s} - evaluate code
